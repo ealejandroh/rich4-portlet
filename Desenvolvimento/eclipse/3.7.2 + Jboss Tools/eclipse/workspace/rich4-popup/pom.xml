@@ -1,0 +1,280 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.fourlinux</groupId>
+	<artifactId>rich4-popup</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>rich4-popup Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<org.richfaces.bom.version>4.2.3.Final</org.richfaces.bom.version>
+		<jboss.portlet.bridge>3.1.0.Final</jboss.portlet.bridge>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.richfaces</groupId>
+				<artifactId>richfaces-bom</artifactId>
+				<version>${org.richfaces.bom.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>richfaces-components-ui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.core</groupId>
+			<artifactId>richfaces-core-impl</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+		</dependency>
+
+		<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>jstl</artifactId> 
+			<version>1.2</version> </dependency> -->
+		<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>servlet-api</artifactId> 
+			<version>2.5</version> <scope>provided</scope> </dependency> -->
+		<!-- <dependency> <groupId>javax.servlet.jsp</groupId> <artifactId>jsp-api</artifactId> 
+			<scope>provided</scope> </dependency> -->
+		
+		<dependency>
+			<groupId>org.jboss.portletbridge</groupId>
+			<artifactId>portletbridge-api</artifactId>
+			<version>${jboss.portlet.bridge}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.portletbridge</groupId>
+			<artifactId>portletbridge-impl</artifactId>
+			<version>${jboss.portlet.bridge}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.portletbridge</groupId>
+			<artifactId>portletbridge-extension-richfaces</artifactId>
+			<version>${jboss.portlet.bridge}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- <dependency> <groupId>com.sun.el</groupId> <artifactId>el-ri</artifactId> 
+			<version>1.0</version> </dependency> -->
+		<!-- <dependency> <groupId>org.jboss.spec.javax.faces</groupId> <artifactId>jboss-jsf-api_2.0_spec</artifactId> 
+			<version>1.0.0.Beta1</version> </dependency> -->
+		<dependency>
+			<groupId>org.jboss.jsf.integration</groupId>
+			<artifactId>jboss-faces</artifactId>
+			<version>1.0.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.mc-int</groupId>
+			<artifactId>jboss-mc-int-servlet</artifactId>
+			<version>2.2.0.GA</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>jboss-mc-int-common</artifactId>
+					<groupId>org.jboss.mc-int</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-deployers-vfs-spi</artifactId>
+					<groupId>org.jboss.deployers</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-vfs</artifactId>
+					<groupId>org.jboss</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-common-core</artifactId>
+					<groupId>org.jboss</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-logging-spi</artifactId>
+					<groupId>org.jboss.logging</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>scanning-plugins</artifactId>
+					<groupId>org.jboss.scanning</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>xml-apis</artifactId>
+					<groupId>apache-xerces</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jaxb-api</artifactId>
+					<groupId>sun-jaxb</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-deployers-core</artifactId>
+					<groupId>org.jboss.deployers</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-mdr</artifactId>
+					<groupId>org.jboss</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-kernel</artifactId>
+					<groupId>org.jboss.kernel</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-deployers-impl</artifactId>
+					<groupId>org.jboss.deployers</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-managed</artifactId>
+					<groupId>org.jboss.man</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-dependency</artifactId>
+					<groupId>org.jboss.kernel</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-metatype</artifactId>
+					<groupId>org.jboss.man</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dtdparser</artifactId>
+					<groupId>com.wutka</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>activation</artifactId>
+					<groupId>javax.activation</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>scanning-spi</artifactId>
+					<groupId>org.jboss.scanning</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-deployers-client</artifactId>
+					<groupId>org.jboss.deployers</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-deployers-core-spi</artifactId>
+					<groupId>org.jboss.deployers</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>scanning-impl</artifactId>
+					<groupId>org.jboss.scanning</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-classloading-vfs</artifactId>
+					<groupId>org.jboss.cl</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-reflect</artifactId>
+					<groupId>org.jboss</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-classloading-spi</artifactId>
+					<groupId>org.jboss.integration</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-deployers-spi</artifactId>
+					<groupId>org.jboss.deployers</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jbossxb</artifactId>
+					<groupId>org.jboss</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-deployers-vfs</artifactId>
+					<groupId>org.jboss.deployers</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>
+						jboss-deployers-structure-spi
+					</artifactId>
+					<groupId>org.jboss.deployers</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-classloading</artifactId>
+					<groupId>org.jboss.cl</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>javax.inject</artifactId>
+					<groupId>javax.inject</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>xml-apis</artifactId>
+					<groupId>xml-apis</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>xercesImpl</artifactId>
+					<groupId>xerces</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>javassist</artifactId>
+					<groupId>javassist</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-classloader</artifactId>
+					<groupId>org.jboss.cl</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>stax-api</artifactId>
+					<groupId>stax</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-deployers-client-spi</artifactId>
+					<groupId>org.jboss.deployers</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>servlet-api</artifactId>
+					<groupId>javax.servlet</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Maven Repository Group</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<build>
+		<finalName>rich4-popup</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
